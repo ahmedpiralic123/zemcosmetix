@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
     :root {
       --accent: #8B6F47;
       --accent-light: #A8895F;
@@ -32,9 +32,9 @@
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Montserrat', sans-serif;
     }
- 
+
     html { scroll-behavior: smooth; }
- 
+
     body {
       background: var(--bg);
       color: var(--ink);
@@ -44,12 +44,12 @@
       line-height: 1.7;
       overflow-x: hidden;
     }
- 
+
     /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg-alt); }
     ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
- 
+
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -98,10 +98,10 @@
     }
     .nav-cta:hover { background: var(--accent) !important; color: var(--cream) !important; }
     .nav-cta::after { display: none !important; }
- 
+
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; }
     .hamburger span { width: 26px; height: 1px; background: var(--ink); transition: all 0.3s; }
- 
+
     .mobile-menu {
       display: none; position: fixed; inset: 0; background: var(--bg);
       z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
@@ -113,7 +113,7 @@
       transition: color 0.3s;
     }
     .mobile-menu a:hover { color: var(--accent); }
- 
+
     /* ── HERO ── */
     .hero {
       min-height: 100vh; position: relative;
@@ -207,15 +207,15 @@
       0%, 100% { opacity: 0.3; transform: scaleY(1); }
       50% { opacity: 1; transform: scaleY(1.1); }
     }
- 
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
- 
+
     /* ── SECTIONS ── */
     section { padding: 100px 60px; }
- 
+
     .section-eyebrow {
       font-size: 10px; letter-spacing: 5px; color: var(--accent);
       text-transform: uppercase; margin-bottom: 16px;
@@ -231,7 +231,7 @@
       color: var(--ink-soft); max-width: 560px;
       font-size: 13px; line-height: 1.8; letter-spacing: 0.5px;
     }
- 
+
     /* ── BRAND STRIP ── */
     .brand-strip {
       padding: 40px 60px;
@@ -251,7 +251,7 @@
       font-size: 14px; color: var(--accent);
     }
     .brand-strip-text { font-size: 11px; letter-spacing: 2px; color: var(--ink-soft); text-transform: uppercase; }
- 
+
     /* ── PRODUCTS ── */
     #proizvodi { background: var(--bg-alt); }
     .products-header { text-align: center; margin-bottom: 70px; }
@@ -320,7 +320,7 @@
     .product-card:hover .product-link { opacity: 1; transform: translateY(0); }
     .product-link svg { transition: transform 0.3s; }
     .product-link:hover svg { transform: translateX(4px); }
- 
+
     /* ── ABOUT ── */
     #o-nama {
       background: var(--bg);
@@ -372,7 +372,7 @@
       font-size: 10px; letter-spacing: 2px; color: var(--ink-muted);
       text-transform: uppercase; margin-top: 6px;
     }
- 
+
     /* ── WHY US / FEATURES ── */
     #prednosti {
       background: var(--bg-alt);
@@ -400,7 +400,7 @@
       font-size: 22px; font-weight: 400; margin-bottom: 14px; color: var(--ink);
     }
     .feature-desc { font-size: 12px; color: var(--ink-soft); line-height: 1.8; }
- 
+
     /* ── CONTACT ── */
     #kontakt {
       background: var(--bg);
@@ -447,7 +447,7 @@
       text-transform: uppercase;
     }
     .italy-flag { font-size: 20px; }
- 
+
     /* ── FOOTER ── */
     footer {
       background: var(--ink);
@@ -489,13 +489,13 @@
     }
     .footer-copy { font-size: 11px; color: rgba(250,247,242,0.25); letter-spacing: 1px; }
     .footer-brand-flag { font-size: 11px; color: rgba(250,247,242,0.25); display: flex; align-items: center; gap: 6px; }
- 
+
     /* ── DIVIDER ── */
     .gold-divider {
       width: 60px; height: 1px; background: var(--accent); margin: 32px 0; opacity: 0.6;
     }
     .gold-divider.center { margin-left: auto; margin-right: auto; }
- 
+
     /* ── ANIMATIONS on scroll ── */
     .reveal {
       opacity: 0; transform: translateY(40px);
@@ -505,33 +505,109 @@
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
- 
+
     /* ── RESPONSIVE ── */
+
+    /* Tablet */
     @media (max-width: 1024px) {
-      #o-nama { grid-template-columns: 1fr; }
-      #kontakt { grid-template-columns: 1fr; }
-      .features-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
+      nav { padding: 20px 36px; }
+      nav.scrolled { padding: 14px 36px; }
+      section { padding: 80px 40px; }
+      #o-nama { grid-template-columns: 1fr; gap: 50px; }
+      #kontakt { grid-template-columns: 1fr; gap: 50px; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .about-visual { height: 380px; }
+      .hero-title { font-size: clamp(44px, 7vw, 80px); }
     }
+
+    /* Mobile */
     @media (max-width: 768px) {
-      nav { padding: 20px 28px; }
-      nav.scrolled { padding: 14px 28px; }
+      /* Nav */
+      nav { padding: 18px 20px; }
+      nav.scrolled { padding: 14px 20px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      section { padding: 70px 28px; }
-      .brand-strip { padding: 30px 28px; gap: 30px; }
+      .nav-logo-name { font-size: 20px; letter-spacing: 2px; }
+      .nav-logo-sub { font-size: 8px; letter-spacing: 3px; }
+
+      /* Hero */
+      .hero-content { padding: 110px 24px 80px; }
+      .hero-title { font-size: clamp(38px, 11vw, 60px); letter-spacing: 1px; }
+      .hero-eyebrow { font-size: 9px; letter-spacing: 3px; }
+      .hero-desc { font-size: 12px; letter-spacing: 0.5px; }
+      .hero-btns { flex-direction: column; align-items: center; gap: 14px; }
+      .btn-primary, .btn-outline { width: 100%; max-width: 280px; text-align: center; padding: 15px 28px; }
+      .hero-scroll { bottom: 24px; }
+
+      /* Sections */
+      section { padding: 60px 20px; }
+      .section-title { font-size: clamp(30px, 8vw, 44px); }
+      .section-eyebrow { font-size: 9px; letter-spacing: 3px; }
+
+      /* Brand strip */
+      .brand-strip { padding: 24px 20px; gap: 20px; flex-direction: column; align-items: flex-start; }
+      .brand-strip-item { gap: 10px; }
+      .brand-strip-text { font-size: 10px; letter-spacing: 1.5px; }
+
+      /* Products */
+      #proizvodi { padding: 60px 0; }
+      .products-header { padding: 0 20px; margin-bottom: 40px; }
       .products-grid { grid-template-columns: 1fr; gap: 2px; }
-      .about-visual { height: 340px; }
-      .about-stats { gap: 24px; flex-wrap: wrap; }
+      .product-card { aspect-ratio: 3/4; }
+      .product-card-body { padding: 24px 20px; }
+      .product-name { font-size: 24px; }
+      /* Always show desc on mobile (no hover) */
+      .product-desc { max-height: 120px; }
+      .product-link { opacity: 1; transform: translateY(0); }
+
+      /* About */
+      #o-nama { padding: 60px 20px; grid-template-columns: 1fr; gap: 40px; }
+      .about-visual { height: 280px; }
+      .about-frame-icon { font-size: 60px; }
+      .about-frame-inner-text .num { font-size: 36px; }
+      .about-frame-inner-text .lbl { font-size: 9px; }
+      .about-stats { gap: 20px; flex-wrap: wrap; margin-top: 32px; }
+      .about-stat .num { font-size: 32px; }
+      .about-stat .lbl { font-size: 9px; }
+
+      /* Features */
+      #prednosti { padding: 60px 20px; }
+      .features-grid { grid-template-columns: 1fr; margin-top: 40px; }
+      .feature-item { padding: 36px 24px; }
+      .feature-title { font-size: 20px; }
+
+      /* Contact */
+      #kontakt { padding: 60px 20px; grid-template-columns: 1fr; gap: 48px; }
+      .contact-info { order: -1; }
+      .contact-detail { margin-bottom: 24px; }
+      .contact-detail-value { font-size: 17px; }
+      .contact-separator { margin: 32px 0; }
+      .contact-italy-badge { font-size: 10px; letter-spacing: 1px; padding: 14px 18px; }
       .form-row { grid-template-columns: 1fr; }
-      footer { padding: 50px 28px; }
-      .footer-inner { grid-template-columns: 1fr; gap: 40px; }
-      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .btn-primary { width: 100%; text-align: center; }
+
+      /* Footer */
+      footer { padding: 48px 20px 32px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; margin-bottom: 36px; }
+      .footer-brand-name { font-size: 22px; letter-spacing: 3px; }
+      .footer-brand-desc { max-width: 100%; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+      /* Gold divider */
+      .gold-divider { margin: 24px 0; }
+    }
+
+    /* Small phones */
+    @media (max-width: 390px) {
+      .hero-title { font-size: 34px; }
+      .nav-logo-name { font-size: 18px; }
+      .product-card { aspect-ratio: unset; min-height: 380px; }
     }
   </style>
 </head>
 <body>
- 
+
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
@@ -548,7 +624,7 @@
     <span></span><span></span><span></span>
   </div>
 </nav>
- 
+
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#proizvodi" onclick="toggleMenu()">Uređaji</a>
@@ -556,7 +632,7 @@
   <a href="#prednosti" onclick="toggleMenu()">Prednosti</a>
   <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
 </div>
- 
+
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
@@ -575,7 +651,7 @@
     <div class="scroll-line"></div>
   </div>
 </section>
- 
+
 <!-- BRAND STRIP -->
 <div class="brand-strip">
   <div class="brand-strip-item">
@@ -595,7 +671,7 @@
     <span class="brand-strip-text">Garancija i Servis</span>
   </div>
 </div>
- 
+
 <!-- PRODUCTS -->
 <section id="proizvodi">
   <div class="products-header reveal">
@@ -604,9 +680,9 @@
     <div class="gold-divider center"></div>
     <p class="section-desc">Svaki uredaj je projektovan i proizveden u Italiji prema najvisim standardima kvalitete, namijenjen profesionalcima koji ne kompromituju rezultate.</p>
   </div>
- 
+
   <div class="products-grid">
- 
+
     <!-- 1 Cryolipolysis -->
     <div class="product-card reveal">
       <div class="product-card-img">
@@ -625,7 +701,7 @@
         </a>
       </div>
     </div>
- 
+
     <!-- 2 Laser Hair Removal -->
     <div class="product-card reveal reveal-delay-1">
       <div class="product-card-img">
@@ -644,7 +720,7 @@
         </a>
       </div>
     </div>
- 
+
     <!-- 4 Cavitation RF -->
     <div class="product-card reveal">
       <div class="product-card-img">
@@ -663,7 +739,7 @@
         </a>
       </div>
     </div>
- 
+
     <!-- 5 Skin Analyzer -->
     <div class="product-card reveal reveal-delay-1">
       <div class="product-card-img">
@@ -682,7 +758,7 @@
         </a>
       </div>
     </div>
- 
+
     <!-- 6 CTA card -->
     <div class="product-card reveal reveal-delay-2" style="background: var(--accent); cursor: default;">
       <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;z-index:2;">
@@ -692,10 +768,10 @@
         <a href="#kontakt" class="btn-primary" style="background:var(--ink);color:var(--cream);">Kontaktirajte Nas</a>
       </div>
     </div>
- 
+
   </div>
 </section>
- 
+
 <!-- ABOUT -->
 <section id="o-nama">
   <div class="about-visual reveal">
@@ -732,7 +808,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- FEATURES -->
 <section id="prednosti">
   <div class="reveal">
@@ -773,7 +849,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- CONTACT -->
 <section id="kontakt">
   <div class="reveal">
@@ -781,7 +857,7 @@
     <h2 class="section-title">Zapocinimo<br/><em>razgovor</em></h2>
     <div class="gold-divider"></div>
     <p class="section-desc" style="margin-bottom:36px;">Ispunite formu ili nas kontaktirajte direktno. Odgovaramo u roku od 24 sata radnim danom.</p>
- 
+
     <div class="contact-info">
       <div class="contact-detail">
         <div class="contact-detail-label">Telefon</div>
@@ -802,7 +878,7 @@
       </div>
     </div>
   </div>
- 
+
   <div class="reveal reveal-delay-1">
     <form class="contact-form" onsubmit="handleSubmit(event)">
       <div class="form-row">
@@ -841,7 +917,7 @@
     </form>
   </div>
 </section>
- 
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -875,19 +951,25 @@
     <span class="footer-brand-flag"><span>🇮🇹</span> Diamond Macchine Professionali · Bosna i Hercegovina</span>
   </div>
 </footer>
- 
+
 <script>
   // Navbar scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
   });
- 
+
   // Mobile menu
   function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
+    const menu = document.getElementById('mobileMenu');
+    const isOpen = menu.classList.toggle('open');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   }
- 
+  // Close on backdrop tap
+  document.getElementById('mobileMenu').addEventListener('click', function(e) {
+    if (e.target === this) toggleMenu();
+  });
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -896,7 +978,7 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(r => observer.observe(r));
- 
+
   // Form
   function handleSubmit(e) {
     e.preventDefault();
@@ -906,6 +988,7 @@
   }
 </script>
 </body>
-</html></h1>
+</html>
+</h1>
 </body>
 </html>
