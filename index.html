@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Site</title>
+</head>
+<body>
+  <h1><!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zem Cosmetix — Diamond Macchine Professionali | Bosna i Hercegovina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --accent: #8B6F47;
+      --accent-light: #A8895F;
+      --accent-pale: #C4A882;
+      --bg: #F2EDE4;
+      --bg-alt: #EAE3D6;
+      --bg-card: #E3DAC9;
+      --ink: #1C1710;
+      --ink-mid: #3D3427;
+      --ink-soft: #6B5E4A;
+      --ink-muted: #9A8E7E;
+      --cream: #FAF7F2;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+ 
+    html { scroll-behavior: smooth; }
+ 
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+ 
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg-alt); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+ 
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 60px;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(242,237,228,0.97);
+      padding: 16px 60px;
+      border-bottom: 1px solid rgba(139,111,71,0.2);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 24px rgba(28,23,16,0.06);
+    }
+    .nav-logo {
+      display: flex; flex-direction: column; gap: 2px;
+      text-decoration: none;
+    }
+    .nav-logo-name {
+      font-family: var(--font-display);
+      font-size: 26px; font-weight: 600; letter-spacing: 4px;
+      color: var(--ink); text-transform: uppercase;
+    }
+    .nav-logo-sub {
+      font-size: 9px; letter-spacing: 5px; color: var(--accent);
+      text-transform: uppercase; font-weight: 400;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a {
+      text-decoration: none; color: var(--ink-soft);
+      font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+      font-weight: 400; transition: color 0.3s;
+      position: relative; padding-bottom: 4px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px;
+      background: var(--accent); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: transparent; border: 1px solid var(--accent);
+      color: var(--accent) !important; padding: 10px 24px !important;
+      font-size: 10px !important; letter-spacing: 3px !important;
+      transition: background 0.3s, color 0.3s !important;
+    }
+    .nav-cta:hover { background: var(--accent) !important; color: var(--cream) !important; }
+    .nav-cta::after { display: none !important; }
+ 
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; }
+    .hamburger span { width: 26px; height: 1px; background: var(--ink); transition: all 0.3s; }
+ 
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; background: var(--bg);
+      z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      text-decoration: none; color: var(--ink); font-family: var(--font-display);
+      font-size: 32px; font-weight: 300; letter-spacing: 3px;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+ 
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: 
+        radial-gradient(ellipse at 70% 50%, rgba(139,111,71,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(139,111,71,0.05) 0%, transparent 50%),
+        linear-gradient(135deg, #EDE6D8 0%, #F2EDE4 50%, #E8E0D0 100%);
+    }
+    .hero-lines {
+      position: absolute; inset: 0; overflow: hidden;
+    }
+    .hero-lines::before {
+      content: '';
+      position: absolute; top: -50%; right: -10%;
+      width: 600px; height: 600px;
+      border: 1px solid rgba(139,111,71,0.15);
+      border-radius: 50%;
+      animation: rotateSlow 25s linear infinite;
+    }
+    .hero-lines::after {
+      content: '';
+      position: absolute; top: -20%; right: 5%;
+      width: 400px; height: 400px;
+      border: 1px solid rgba(139,111,71,0.08);
+      border-radius: 50%;
+      animation: rotateSlow 18s linear infinite reverse;
+    }
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 120px 40px 80px;
+      max-width: 900px;
+    }
+    .hero-eyebrow {
+      font-size: 10px; letter-spacing: 6px; color: var(--accent);
+      text-transform: uppercase; margin-bottom: 28px;
+      animation: fadeUp 1s ease both;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 8vw, 110px);
+      font-weight: 300; line-height: 1.0;
+      letter-spacing: 2px; margin-bottom: 32px; color: var(--ink);
+      animation: fadeUp 1s ease 0.15s both;
+    }
+    .hero-title em { font-style: italic; color: var(--accent); }
+    .hero-desc {
+      font-size: 13px; letter-spacing: 1.5px; color: var(--ink-soft);
+      margin-bottom: 52px; max-width: 520px; margin-left: auto; margin-right: auto;
+      animation: fadeUp 1s ease 0.3s both;
+    }
+    .hero-btns {
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp 1s ease 0.45s both;
+    }
+    .btn-primary {
+      background: var(--accent); color: var(--cream);
+      padding: 16px 40px; text-decoration: none;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      font-weight: 500; transition: all 0.3s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--ink-mid); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--ink);
+      padding: 16px 40px; text-decoration: none;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      font-weight: 400; border: 1px solid rgba(28,23,16,0.25);
+      transition: all 0.3s; display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .hero-scroll {
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      animation: fadeUp 1s ease 0.6s both;
+    }
+    .hero-scroll span { font-size: 9px; letter-spacing: 4px; color: var(--ink-muted); text-transform: uppercase; }
+    .scroll-line {
+      width: 1px; height: 50px; background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.1); }
+    }
+ 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+ 
+    /* ── SECTIONS ── */
+    section { padding: 100px 60px; }
+ 
+    .section-eyebrow {
+      font-size: 10px; letter-spacing: 5px; color: var(--accent);
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 300; line-height: 1.1; color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .section-title em { font-style: italic; color: var(--accent); }
+    .section-desc {
+      color: var(--ink-soft); max-width: 560px;
+      font-size: 13px; line-height: 1.8; letter-spacing: 0.5px;
+    }
+ 
+    /* ── BRAND STRIP ── */
+    .brand-strip {
+      padding: 40px 60px;
+      background: var(--bg-alt);
+      border-top: 1px solid rgba(139,111,71,0.2);
+      border-bottom: 1px solid rgba(139,111,71,0.2);
+      display: flex; align-items: center; justify-content: center;
+      gap: 60px; flex-wrap: wrap;
+    }
+    .brand-strip-item {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .brand-strip-icon {
+      width: 36px; height: 36px;
+      border: 1px solid var(--accent-pale); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--accent);
+    }
+    .brand-strip-text { font-size: 11px; letter-spacing: 2px; color: var(--ink-soft); text-transform: uppercase; }
+ 
+    /* ── PRODUCTS ── */
+    #proizvodi { background: var(--bg-alt); }
+    .products-header { text-align: center; margin-bottom: 70px; }
+    .products-header .section-desc { margin: 0 auto; }
+    .products-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2px; max-width: 1400px; margin: 0 auto;
+    }
+    .product-card {
+      position: relative; background: var(--bg-card);
+      overflow: hidden; cursor: pointer;
+      aspect-ratio: 4/5;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .product-card-img {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-alt) 100%);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.6s ease;
+    }
+    .product-card:hover .product-card-img { transform: scale(1.05); }
+    .product-card-placeholder {
+      font-family: var(--font-display);
+      font-size: 80px; color: rgba(139,111,71,0.15);
+      font-style: italic; font-weight: 300;
+      position: absolute; inset: 0; display: flex;
+      align-items: center; justify-content: center;
+      letter-spacing: 4px;
+    }
+    .product-card-placeholder img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .product-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(28,23,16,0.88) 0%, rgba(28,23,16,0.2) 50%, transparent 100%);
+    }
+    .product-card-body {
+      position: relative; z-index: 2; padding: 32px 28px;
+      transform: translateY(12px); transition: transform 0.4s;
+    }
+    .product-card:hover .product-card-body { transform: translateY(0); }
+    .product-tag {
+      font-size: 9px; letter-spacing: 3px; color: var(--accent-pale);
+      text-transform: uppercase; margin-bottom: 10px; font-weight: 400;
+    }
+    .product-name {
+      font-family: var(--font-display);
+      font-size: 28px; font-weight: 400; line-height: 1.1; color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .product-desc {
+      font-size: 12px; color: rgba(250,247,242,0.65);
+      line-height: 1.6; margin-bottom: 20px;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .product-card:hover .product-desc { max-height: 100px; }
+    .product-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 10px; letter-spacing: 2.5px; color: var(--accent-pale);
+      text-transform: uppercase; text-decoration: none;
+      opacity: 0; transform: translateY(8px);
+      transition: all 0.4s 0.1s;
+    }
+    .product-card:hover .product-link { opacity: 1; transform: translateY(0); }
+    .product-link svg { transition: transform 0.3s; }
+    .product-link:hover svg { transform: translateX(4px); }
+ 
+    /* ── ABOUT ── */
+    #o-nama {
+      background: var(--bg);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .about-visual {
+      position: relative; height: 600px;
+    }
+    .about-frame {
+      position: absolute;
+      border: 1px solid rgba(139,111,71,0.25);
+    }
+    .about-frame-1 {
+      top: 0; left: 0; right: 40px; bottom: 40px;
+      background: linear-gradient(135deg, var(--bg-alt), var(--bg-card));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-frame-2 {
+      bottom: 0; right: 0; width: 60%; height: 45%;
+      background: var(--accent); z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .about-frame-inner-text {
+      text-align: center;
+    }
+    .about-frame-inner-text .num {
+      font-family: var(--font-display);
+      font-size: 52px; color: var(--cream); font-weight: 300;
+      line-height: 1;
+    }
+    .about-frame-inner-text .lbl {
+      font-size: 10px; letter-spacing: 3px; color: rgba(250,247,242,0.75);
+      text-transform: uppercase; margin-top: 6px;
+    }
+    .about-frame-icon {
+      font-family: var(--font-display);
+      font-size: 100px; color: rgba(139,111,71,0.12);
+      font-style: italic;
+    }
+    .about-stats {
+      display: flex; gap: 40px; margin-top: 48px;
+    }
+    .about-stat .num {
+      font-family: var(--font-display);
+      font-size: 42px; color: var(--accent); font-weight: 300; line-height: 1;
+    }
+    .about-stat .lbl {
+      font-size: 10px; letter-spacing: 2px; color: var(--ink-muted);
+      text-transform: uppercase; margin-top: 6px;
+    }
+ 
+    /* ── WHY US / FEATURES ── */
+    #prednosti {
+      background: var(--bg-alt);
+      text-align: center;
+    }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      margin-top: 70px; background: rgba(139,111,71,0.12);
+      max-width: 1200px; margin-left: auto; margin-right: auto;
+      margin-top: 70px;
+    }
+    .feature-item {
+      background: var(--bg-alt); padding: 52px 40px;
+      transition: background 0.3s;
+    }
+    .feature-item:hover { background: var(--bg-card); }
+    .feature-icon {
+      width: 56px; height: 56px; margin: 0 auto 28px;
+      border: 1px solid rgba(139,111,71,0.3); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 22px; font-weight: 400; margin-bottom: 14px; color: var(--ink);
+    }
+    .feature-desc { font-size: 12px; color: var(--ink-soft); line-height: 1.8; }
+ 
+    /* ── CONTACT ── */
+    #kontakt {
+      background: var(--bg);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-label {
+      font-size: 10px; letter-spacing: 3px; color: var(--accent);
+      text-transform: uppercase;
+    }
+    .form-input, .form-select, .form-textarea {
+      background: transparent; border: none;
+      border-bottom: 1px solid rgba(28,23,16,0.18);
+      color: var(--ink); font-family: var(--font-body); font-weight: 300;
+      font-size: 14px; padding: 12px 0;
+      transition: border-color 0.3s; outline: none;
+      width: 100%;
+    }
+    .form-input::placeholder { color: var(--ink-muted); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-bottom-color: var(--accent);
+    }
+    .form-select { cursor: pointer; }
+    .form-select option { background: var(--bg); color: var(--ink); }
+    .form-textarea { resize: none; height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .contact-info { padding-top: 20px; }
+    .contact-detail { margin-bottom: 36px; }
+    .contact-detail-label {
+      font-size: 9px; letter-spacing: 4px; color: var(--accent);
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .contact-detail-value {
+      font-family: var(--font-display); font-size: 20px; font-weight: 300; color: var(--ink);
+    }
+    .contact-separator {
+      width: 40px; height: 1px; background: rgba(139,111,71,0.3); margin: 48px 0;
+    }
+    .contact-italy-badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 24px; border: 1px solid rgba(139,111,71,0.25);
+      font-size: 11px; letter-spacing: 2px; color: var(--ink-soft);
+      text-transform: uppercase;
+    }
+    .italy-flag { font-size: 20px; }
+ 
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(139,111,71,0.25);
+      padding: 60px;
+    }
+    .footer-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
+      margin-bottom: 50px;
+    }
+    .footer-brand-name {
+      font-family: var(--font-display);
+      font-size: 28px; font-weight: 600; letter-spacing: 4px;
+      text-transform: uppercase; margin-bottom: 8px; color: var(--cream);
+    }
+    .footer-brand-sub {
+      font-size: 9px; letter-spacing: 4px; color: var(--accent-pale);
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .footer-brand-desc {
+      font-size: 12px; color: rgba(250,247,242,0.4); line-height: 1.8; max-width: 320px;
+    }
+    .footer-col-title {
+      font-size: 10px; letter-spacing: 3px; color: var(--accent-pale);
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      text-decoration: none; color: rgba(250,247,242,0.4);
+      font-size: 12px; letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--accent-pale); }
+    .footer-bottom {
+      border-top: 1px solid rgba(250,247,242,0.07);
+      padding-top: 30px; display: flex; justify-content: space-between; align-items: center;
+      max-width: 1400px; margin: 0 auto;
+    }
+    .footer-copy { font-size: 11px; color: rgba(250,247,242,0.25); letter-spacing: 1px; }
+    .footer-brand-flag { font-size: 11px; color: rgba(250,247,242,0.25); display: flex; align-items: center; gap: 6px; }
+ 
+    /* ── DIVIDER ── */
+    .gold-divider {
+      width: 60px; height: 1px; background: var(--accent); margin: 32px 0; opacity: 0.6;
+    }
+    .gold-divider.center { margin-left: auto; margin-right: auto; }
+ 
+    /* ── ANIMATIONS on scroll ── */
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+ 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      #o-nama { grid-template-columns: 1fr; }
+      #kontakt { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 20px 28px; }
+      nav.scrolled { padding: 14px 28px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 70px 28px; }
+      .brand-strip { padding: 30px 28px; gap: 30px; }
+      .products-grid { grid-template-columns: 1fr; gap: 2px; }
+      .about-visual { height: 340px; }
+      .about-stats { gap: 24px; flex-wrap: wrap; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 50px 28px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-name">Zem Cosmetix</span>
+    <span class="nav-logo-sub">Diamond Macchine Professionali</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#proizvodi">Uređaji</a></li>
+    <li><a href="#o-nama">O Nama</a></li>
+    <li><a href="#prednosti">Prednosti</a></li>
+    <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+ 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#proizvodi" onclick="toggleMenu()">Uređaji</a>
+  <a href="#o-nama" onclick="toggleMenu()">O Nama</a>
+  <a href="#prednosti" onclick="toggleMenu()">Prednosti</a>
+  <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+</div>
+ 
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Profesionalna oprema · Italiana izrada · Bosna i Hercegovina</p>
+    <h1 class="hero-title">Ljepota<br/><em>bez kompromisa</em></h1>
+    <p class="hero-desc">Ekskluzivni distributer brenda Diamond Macchine Professionali u Bosni i Hercegovini. Vrhunska talijanska tehnologija za vase salone i klinike.</p>
+    <div class="hero-btns">
+      <a href="#proizvodi" class="btn-primary">Pogledaj Uređaje</a>
+      <a href="#kontakt" class="btn-outline">Zatraži Ponudu</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+ 
+<!-- BRAND STRIP -->
+<div class="brand-strip">
+  <div class="brand-strip-item">
+    <div class="brand-strip-icon">🇮🇹</div>
+    <span class="brand-strip-text">Talijanska Izrada</span>
+  </div>
+  <div class="brand-strip-item">
+    <div class="brand-strip-icon">✦</div>
+    <span class="brand-strip-text">CE Certifikat</span>
+  </div>
+  <div class="brand-strip-item">
+    <div class="brand-strip-icon">◎</div>
+    <span class="brand-strip-text">Profesionalna Podrška</span>
+  </div>
+  <div class="brand-strip-item">
+    <div class="brand-strip-icon">◈</div>
+    <span class="brand-strip-text">Garancija i Servis</span>
+  </div>
+</div>
+ 
+<!-- PRODUCTS -->
+<section id="proizvodi">
+  <div class="products-header reveal">
+    <p class="section-eyebrow">Diamond Macchine Professionali</p>
+    <h2 class="section-title">Naši <em>Uređaji</em></h2>
+    <div class="gold-divider center"></div>
+    <p class="section-desc">Svaki uredaj je projektovan i proizveden u Italiji prema najvisim standardima kvalitete, namijenjen profesionalcima koji ne kompromituju rezultate.</p>
+  </div>
+ 
+  <div class="products-grid">
+ 
+    <!-- 1 Cryolipolysis -->
+    <div class="product-card reveal">
+      <div class="product-card-img">
+        <div class="product-card-placeholder">❄</div>
+      </div>
+      <div class="product-card-overlay"></div>
+      <div class="product-card-body">
+        <p class="product-tag">Redukcija Masti</p>
+        <h3 class="product-name">Cryolipolysis</h3>
+        <p class="product-desc">Zamrzavanje masnih stanica bez operacije. Vidljivi rezultati vec nakon prve tretmane. Sigurno, efikasno, bezbolno.</p>
+        <a href="#kontakt" class="product-link">
+          Saznaj vise
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+ 
+    <!-- 2 Laser Hair Removal -->
+    <div class="product-card reveal reveal-delay-1">
+      <div class="product-card-img">
+        <div class="product-card-placeholder">✦</div>
+      </div>
+      <div class="product-card-overlay"></div>
+      <div class="product-card-body">
+        <p class="product-tag">Epilacija</p>
+        <h3 class="product-name">Laser Epilacija</h3>
+        <p class="product-desc">Trajna eliminacija dlaka laserskom tehnologijom. Pogodan za sve tipove koze. Brzo, precizno, dugotrajno.</p>
+        <a href="#kontakt" class="product-link">
+          Saznaj vise
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+ 
+    <!-- 4 Cavitation RF -->
+    <div class="product-card reveal">
+      <div class="product-card-img">
+        <div class="product-card-placeholder">◎</div>
+      </div>
+      <div class="product-card-overlay"></div>
+      <div class="product-card-body">
+        <p class="product-tag">Oblikovanje Tijela</p>
+        <h3 class="product-name">Kavitacija RF</h3>
+        <p class="product-desc">Ultrazvucna kavitacija i radiofrekvencija za modeliranje tijela, redukciju celulita i zatezanje koze bez invazivnih zahvata.</p>
+        <a href="#kontakt" class="product-link">
+          Saznaj vise
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+ 
+    <!-- 5 Skin Analyzer -->
+    <div class="product-card reveal reveal-delay-1">
+      <div class="product-card-img">
+        <div class="product-card-placeholder">◈</div>
+      </div>
+      <div class="product-card-overlay"></div>
+      <div class="product-card-body">
+        <p class="product-tag">Analiza Koze</p>
+        <h3 class="product-name">Skin Analyzer Pro</h3>
+        <p class="product-desc">Profesionalni analizator koze koji pruza dubinsku dijagnostiku u realnom vremenu. Prilagodite tretmane svakom klijentu individualno.</p>
+        <a href="#kontakt" class="product-link">
+          Saznaj vise
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+ 
+    <!-- 6 CTA card -->
+    <div class="product-card reveal reveal-delay-2" style="background: var(--accent); cursor: default;">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;z-index:2;">
+        <p style="font-size:10px;letter-spacing:4px;color:rgba(250,247,242,0.6);text-transform:uppercase;margin-bottom:20px;">Eksluzivno za BiH</p>
+        <h3 style="font-family:var(--font-display);font-size:36px;font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:24px;">Zainteresovani<br/><em>za saradnju?</em></h3>
+        <p style="font-size:12px;color:rgba(250,247,242,0.7);margin-bottom:32px;line-height:1.7;">Kontaktirajte nas za personalnu demonstraciju i prilagodenu ponudu za vas salon.</p>
+        <a href="#kontakt" class="btn-primary" style="background:var(--ink);color:var(--cream);">Kontaktirajte Nas</a>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- ABOUT -->
+<section id="o-nama">
+  <div class="about-visual reveal">
+    <div class="about-frame about-frame-1">
+      <div class="about-frame-icon">Zem</div>
+    </div>
+    <div class="about-frame about-frame-2">
+      <div class="about-frame-inner-text">
+        <div class="num">100%</div>
+        <div class="lbl">Talijanska<br/>Tehnologija</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-content reveal reveal-delay-1">
+    <p class="section-eyebrow">O nama</p>
+    <h2 class="section-title">Vase povjerenje,<br/><em>nasa misija</em></h2>
+    <div class="gold-divider"></div>
+    <p class="section-desc">Zem Cosmetix je ekskluzivni distributer brenda <strong style="color:var(--accent);">Diamond Macchine Professionali</strong> u Bosni i Hercegovini. Donosimo vam najnaprednije talijanske estetske uredaje direktno do vaseg salona ili klinike.</p>
+    <br/>
+    <p class="section-desc">Nas tim profesionalaca je tu da vas vodi kroz cijeli proces — od odabira uredaja, instalacije i obuke, pa sve do dugotrajne tehnicke podrske. Vasa uspjesnost je nas prioritet.</p>
+    <div class="about-stats">
+      <div class="about-stat">
+        <div class="num">5+</div>
+        <div class="lbl">Premium<br/>Uredaja</div>
+      </div>
+      <div class="about-stat">
+        <div class="num">🇮🇹</div>
+        <div class="lbl" style="font-size:9px;margin-top:4px;">Izrada u<br/>Italiji</div>
+      </div>
+      <div class="about-stat">
+        <div class="num">CE</div>
+        <div class="lbl">Certificirano<br/>& Sigurno</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- FEATURES -->
+<section id="prednosti">
+  <div class="reveal">
+    <p class="section-eyebrow">Zasto Zem Cosmetix</p>
+    <h2 class="section-title">Prednosti koje<br/><em>razlikuju nas</em></h2>
+    <div class="gold-divider center"></div>
+  </div>
+  <div class="features-grid">
+    <div class="feature-item reveal">
+      <div class="feature-icon">🇮🇹</div>
+      <h3 class="feature-title">Talijanska Kvaliteta</h3>
+      <p class="feature-desc">Svaki uredaj je projektovan i proizveden u Italiji od strane brenda Diamond Macchine Professionali, poznatog po inovaciji i pouzdanosti u estetskoj industriji.</p>
+    </div>
+    <div class="feature-item reveal reveal-delay-1">
+      <div class="feature-icon">✦</div>
+      <h3 class="feature-title">Obuka i Podrska</h3>
+      <p class="feature-desc">Puzamo kompletnu obuku za vas tim, tehnicku podrsku i marketinsku pomoc kako biste maksimizirali povrat investicije od prvog dana.</p>
+    </div>
+    <div class="feature-item reveal reveal-delay-2">
+      <div class="feature-icon">◎</div>
+      <h3 class="feature-title">CE Certifikat</h3>
+      <p class="feature-desc">Svi nasi uredaji nose CE certifikat i ispunjavaju sve europske sigurnosne standarde. Radite s punim povjerenjem i legalnom sigurnoscu.</p>
+    </div>
+    <div class="feature-item reveal">
+      <div class="feature-icon">◈</div>
+      <h3 class="feature-title">Garancija i Servis</h3>
+      <p class="feature-desc">Nudimo garanciju na sve uredaje uz brzi servis unutar Bosne i Hercegovine. Vasa investicija je zasticena na dugi rok.</p>
+    </div>
+    <div class="feature-item reveal reveal-delay-1">
+      <div class="feature-icon">▲</div>
+      <h3 class="feature-title">Povrat Investicije</h3>
+      <p class="feature-desc">Nasi uredaji omogucavaju visokoprofitabilne tretmane koji se brzo isplate. Pomozemo vam da izracunate povrat investicije prije kupovine.</p>
+    </div>
+    <div class="feature-item reveal reveal-delay-2">
+      <div class="feature-icon">◉</div>
+      <h3 class="feature-title">Personalizovana Ponuda</h3>
+      <p class="feature-desc">Svaki klijent dobiva individualnu ponudu prilagodenu potrebama salona, budzetu i ciljevima. Nema unificiranih rjesenja — samo ono sto je pravo za vas.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<section id="kontakt">
+  <div class="reveal">
+    <p class="section-eyebrow">Kontaktirajte nas</p>
+    <h2 class="section-title">Zapocinimo<br/><em>razgovor</em></h2>
+    <div class="gold-divider"></div>
+    <p class="section-desc" style="margin-bottom:36px;">Ispunite formu ili nas kontaktirajte direktno. Odgovaramo u roku od 24 sata radnim danom.</p>
+ 
+    <div class="contact-info">
+      <div class="contact-detail">
+        <div class="contact-detail-label">Telefon</div>
+        <div class="contact-detail-value">+387 XX XXX XXX</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Email</div>
+        <div class="contact-detail-value">info@zemcosmetix.ba</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Lokacija</div>
+        <div class="contact-detail-value">Bosna i Hercegovina</div>
+      </div>
+      <div class="contact-separator"></div>
+      <div class="contact-italy-badge">
+        <span class="italy-flag">🇮🇹</span>
+        <span>Ekskluzivni distributer<br/>Diamond Macchine Professionali<br/>za Bosnu i Hercegovinu</span>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="reveal reveal-delay-1">
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Ime i Prezime</label>
+          <input type="text" class="form-input" placeholder="Vase ime" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Telefon</label>
+          <input type="tel" class="form-input" placeholder="+387..." />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Adresa</label>
+        <input type="email" class="form-input" placeholder="email@vasdomen.ba" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Zainteresovani ste za</label>
+        <select class="form-select form-input">
+          <option value="">Odaberite uredaj...</option>
+          <option>Cryolipolysis</option>
+          <option>Laser Epilacija</option>
+          <option>Kavitacija RF</option>
+          <option>Skin Analyzer Pro</option>
+          <option>Vise uredaja / Paketi</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Poruka</label>
+        <textarea class="form-textarea form-input" placeholder="Opiste vas salon i potrebe..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="align-self:flex-start;">Posalji Upit</button>
+      <div id="form-success" style="display:none;color:var(--accent);font-size:12px;letter-spacing:2px;margin-top:8px;">
+        ✓ Hvala! Javit cemo se uskoro.
+      </div>
+    </form>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Zem Cosmetix</div>
+      <div class="footer-brand-sub">Diamond Macchine Professionali</div>
+      <p class="footer-brand-desc">Ekskluzivni distributer talijanskih profesionalnih estetskih uredaja za Bosnu i Hercegovinu. Kvaliteta koja se vidi, pouzdanost koja traje.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Uredaji</div>
+      <ul class="footer-links">
+        <li><a href="#proizvodi">Cryolipolysis</a></li>
+        <li><a href="#proizvodi">Laser Epilacija</a></li>
+        <li><a href="#proizvodi">EMSCULPT</a></li>
+        <li><a href="#proizvodi">Kavitacija RF</a></li>
+        <li><a href="#proizvodi">Skin Analyzer Pro</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Kompanija</div>
+      <ul class="footer-links">
+        <li><a href="#o-nama">O Nama</a></li>
+        <li><a href="#prednosti">Prednosti</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#kontakt">Zatraži Ponudu</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Zem Cosmetix. Sva prava zadrzana.</span>
+    <span class="footer-brand-flag"><span>🇮🇹</span> Diamond Macchine Professionali · Bosna i Hercegovina</span>
+  </div>
+</footer>
+ 
+<script>
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+ 
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+ 
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+ 
+  // Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    setTimeout(() => { document.getElementById('form-success').style.display = 'none'; }, 4000);
+  }
+</script>
+</body>
+</html></h1>
+</body>
+</html>
